@@ -243,7 +243,7 @@ Hook for making API requests within React components.
 
 #### Returns
 
-- `data` (T | null): The response data from the API call.You specify T when you call the `useApi` like this useApi`<Your response type>`.
+- `data` (T | null): The response data from the API call. You specify T when you call the `useApi` like this useApi`<Your response type>`.
 - `error` (Error | AxiosError | null): An error object if the request fails.
 - `loading` (boolean): Indicates if the request is in progress.
 - `fetchData` (function): A function to manually trigger the API request.
