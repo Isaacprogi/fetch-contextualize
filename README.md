@@ -127,7 +127,7 @@ You can always call fetchData what you want
 
 ```jsx
  const { data, error, loading, fetchData:fetchUsers[], searchValue, cancel } = useApi<User[]>('users');
-``
+```
 
 ```jsx
 import React from 'react';
