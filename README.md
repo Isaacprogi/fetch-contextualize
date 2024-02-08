@@ -66,7 +66,7 @@ You can always define your `api config data`  in a differenct file and import it
 ### Axios configuration
 
 #### Axios Instance
-You can use an axios instance in conjuction with the apiConfig
+You can define an axios instance as well.
 
 ```jsx
 const instance = axios.create({
