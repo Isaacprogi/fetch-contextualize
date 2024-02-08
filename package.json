@@ -1,5 +1,5 @@
 {
-  "name": "@isaacprogi/fetch-contextualize",
+  "name": "fetch-contextualize",
   "version": "1.0.0",
   "description": "A React context and hook package for streamlined API requests with Axios, featuring built-in loading states and error handling",
   "type": "module",
@@ -39,9 +39,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/isaacprogi"
-  },
+  
   "engines": {
     "node": ">=14.0.0"
   },
