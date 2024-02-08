@@ -14,7 +14,7 @@
     "test": "jest"
   },
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "@babel/preset-env": "^7.23.9",
     "@babel/preset-typescript": "^7.23.3",
