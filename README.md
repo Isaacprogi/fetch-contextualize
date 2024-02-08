@@ -19,8 +19,8 @@ a custom hook, useApi, for fetching data with ease, handling loading states, err
 - [API Reference](#api-reference)
   - [useApi Hook](#useapi-hook)
 - [Contributing](#contributing)
-- [License](#license)
 - [Credits](#credits)
+- [License](#license)
 
 ## Features
 
@@ -202,7 +202,7 @@ interface User {
 
 function MyComponent() {
  const [id, setId] = useState<string>(1)
- const { data, error, loading, fetchData } = useApi<User>('users', { onMount: false, ``dynamicPath: \users/${id}`` });
+ const { data, error, loading, fetchData } = useApi<User>('users', { onMount: false, dynamicPath:`/users/${id}` });
 
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error: {error.message}</div>;
@@ -223,7 +223,7 @@ function MyComponent() {
 You can remove the useEffect and fetchData and simply set onMount to true.
 
 ```jsx
-const { data, error, loading } = useApi<User>('users', { onMount: true, dynamicPath:'api/users/${id}' });
+const { data, error, loading } = useApi<User>('users', { onMount: true, dynamicPath:`/users/${id}` });
 ```
 
 ### API Reference
@@ -253,7 +253,7 @@ Hook for making API requests within React components.
 We welcome contributions to improve this package. If you have suggestions, bug reports, or want to contribute code, please feel free to open an issue or submit a pull request on our GitHub repository.
 
 ## Credits
-   - axios
+   - [axios](https://axios-http.com)
      
 ## License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
