@@ -20,6 +20,7 @@ a custom hook, useApi, for fetching data with ease, handling loading states, err
   - [useApi Hook](#useapi-hook)
 - [Contributing](#contributing)
 - [License](#license)
+- [Credits](#credits)
 
 ## Features
 
@@ -184,7 +185,7 @@ When making a post request or any other request that requires a body, the body s
   }
 })
 ```
-## Dynamic path 
+### Dynamic path 
 You can `dynamically` change the value of `path parameters` of a url by passing the url to the dynamicPath option.
 You can choose to call the fetch function whenever ever id changes or set onMount to true which will cause a rerender.
 
@@ -201,7 +202,7 @@ interface User {
 
 function MyComponent() {
  const [id, setId] = useState<string>(1)
- const { data, error, loading, fetchData } = useApi<User>('users', { onMount: false, dynamicPath: \users/${id}`` });
+ const { data, error, loading, fetchData } = useApi<User>('users', { onMount: false, ``dynamicPath: \users/${id}`` });
 
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error: {error.message}</div>;
@@ -242,8 +243,8 @@ Hook for making API requests within React components.
 
 #### Returns
 
-- `data` (T): The response data from the API call.You specify T when you call the `useApi` like this useApi<Your response type>.
-- `error` (Error): An error object if the request fails.
+- `data` (T | null): The response data from the API call.You specify T when you call the `useApi` like this useApi`<Your response type>`.
+- `error` (Error | AxiosError | null): An error object if the request fails.
 - `loading` (boolean): Indicates if the request is in progress.
 - `fetchData` (function): A function to manually trigger the API request.
 - `cancel` (function): A function to cancel the ongoing API request if necessary.
@@ -251,6 +252,9 @@ Hook for making API requests within React components.
 ## Contributing
 We welcome contributions to improve this package. If you have suggestions, bug reports, or want to contribute code, please feel free to open an issue or submit a pull request on our GitHub repository.
 
+## Credits
+   - axios
+     
 ## License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
