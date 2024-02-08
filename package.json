@@ -1,5 +1,5 @@
 {
-  "name": "fetch-contextualize",
+  "name": "@isaacprogi/fetch-contextualize",
   "version": "0.0.1",
   "description": "A React context and hook package for streamlined API requests with Axios, featuring built-in loading states and error handling",
   "type": "module",
