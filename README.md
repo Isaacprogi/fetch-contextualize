@@ -45,23 +45,24 @@ Before using the `useApi` hook, you need to set up the `ApiContext` in your appl
 ```jsx
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { ApiConfig,ApiProvider} from 'fetch-contextualize'
+import { ApiConfig, ApiProvider } from 'fetch-contextualize';
 import App from './App';
 
-const apiConfig:ApiConfig[] = [
+const apiConfig: ApiConfig[] = [
   { name: 'users', method: 'GET', path: '/users' },
   { name: 'posts', method: 'GET', path: '/posts' },
 ];
 
-ReactDOM.createRoot(document.getElementById('root')!).render(
+ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <ApiProvider apiConfig={apiConfig}>
        <App />
     </ApiProvider>
   </React.StrictMode>,
-)
+);
+
 ```
-You can always define your `api config data`  in a differenct file and import it.
+You can always define your `apiConfig`('you can call it what ever you want) in a different file and import it.
 
 ### Axios configuration
 
@@ -88,7 +89,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
 You can pass extra configuration to a single api by doing the following.
  ```jsx
  const apiConfig:ApiConfig[] = [
- { name: 'users', method: 'GET', path:'/users' extra:{
+ { name: 'users', method: 'GET', path:'/users', extra:{
   params: {  
     userId: 12345 
   },
@@ -99,7 +100,7 @@ You can pass extra configuration to a single api by doing the following.
   responseType: 'json'
  }},
  
- { name: 'posts', method: 'POST', path: '/posts' extra:{
+ { name: 'posts', method: 'POST', path: '/posts', extra:{
  data: {  
     itemName: "NewExampleItem",
     quantity: 5
@@ -124,10 +125,10 @@ You can pass extra configuration to a single api by doing the following.
 
 After setting up the `ApiContext`, you can use the `useApi` hook in your components to make API calls. Here's how to use it.
 You can always call fetchData what you want and the name `users` must match the name of the of a single api in your apiConfig.
-If the name of your api is `posts` then it should be `posts`.The `User[]` specifies the return type for the data.
+If the name of your api is `posts` then it should be `posts`. The `User[]` specifies the return type for the data.
 
 ```jsx
- const { data, error, loading, fetchData:fetchUsers[], searchValue, cancel } = useApi<User[]>('users');
+ const { data, error, loading, fetchData:fetchUsers, cancel } = useApi<User[]>('users');
 ```
 
 ```jsx
@@ -154,7 +155,7 @@ function MyComponent() {
   );
 }
 ```
-If onmount is set to true,the api is called when component mounts and vise versa if onMount is false.By default onMount is false;
+If onmount is set to true,the api is called when component mounts and vice versa if onMount is false. By default onMount is false;
 The following will not be called when component mounts.
 
 ```jsx
@@ -165,19 +166,23 @@ The following will not be called when component mounts.
 #### Query Parameters: How to pass query parameters
 When making a get request, the query parameters should be put within the params object.
 ```jsx
-  fetchData(params:{
-    id:"blabla",
-    name:"blabla"
-  })
+  fetchData({
+  params: {
+    id: "blabla",
+    name: "blabla"
+  }
+})
 ```
 #### Passing body: How to include a request body
 When making a post request or any other request that requires a body, the body should be put within the data object.
 
 ```jsx
-  fetchData(data:{
-    name:"blabla",
-    email:"blabla.com"
-  })
+  fetchData({
+  data: {
+    name: "blabla",
+    email: "blabla.com"
+  }
+})
 ```
 ## Dynamic path 
 You can `dynamically` change the value of `path parameters` of a url by passing the url to the dynamicPath option.
@@ -186,7 +191,8 @@ You can choose to call the fetch function whenever ever id changes or set onMoun
 ```jsx
 import React from 'react';
 import { useApi } from 'fetch-contextualize';
-import {useState} from 'react'
+import React, { useState, useEffect } from 'react';
+
 
 interface User {
   name:string,
@@ -195,7 +201,7 @@ interface User {
 
 function MyComponent() {
  const [id, setId] = useState<string>(1)
- const { data, error, loading, fetchData } = useApi<User>('users', { onMount: false, dynamicPath:``api/users/${id}`` });
+ const { data, error, loading, fetchData } = useApi<User>('users', { onMount: false, dynamicPath: \users/${id}`` });
 
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error: {error.message}</div>;
