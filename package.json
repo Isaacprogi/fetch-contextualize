@@ -1,0 +1,65 @@
+{
+  "name": "fetch-contextualize",
+  "version": "0.0.1",
+  "description": "A React context and hook package for streamlined API requests with Axios, featuring built-in loading states and error handling",
+  "type": "module",
+  "main": "dist/fetch-contextualize.umd.cjs",
+  "module": "dist/fetch-contextualize.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "vite build && tsc",
+    "test": "jest"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/preset-env": "^7.23.9",
+    "@babel/preset-typescript": "^7.23.3",
+    "@testing-library/jest-dom": "^6.4.2",
+    "@testing-library/react": "^14.2.1",
+    "@testing-library/react-hooks": "^7.0.2",
+    "@types/jest": "^29.5.12",
+    "@types/node": "^20.11.16",
+    "@types/react": "^18.2.51",
+    "@vitejs/plugin-react": "^4.2.1",
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
+    "jsdom": "^24.0.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "ts-jest": "^29.1.2",
+    "typescript": "^5.3.3",
+    "vite": "^5.0.12"
+  },
+  "peerDependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/isaacprogi"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "keywords": [
+    "fetch",
+    "react",
+    "hooks",
+    "context",
+    "api",
+    "http",
+    "axios",
+    "react-dom"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/isaacprogi/fetch-contextualize.git"
+  },
+  "bugs": {
+    "url": "https://github.com/isaacprogi/fetch-contextualize/issues"
+  },
+  "homepage": "https://github.com/isaacprogi/fetch-contextualize#readme"
+}
