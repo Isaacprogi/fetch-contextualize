@@ -117,7 +117,7 @@ You can pass extra configuration to a single api by doing the following.
 ];
 
 ```
-`note`: The data and params in extra configuration will override the values passed to the fetchData function.
+`note`: The data and params in extra configuration will override the values passed to the `fetchData()` function.
 
 
 ## Usage
