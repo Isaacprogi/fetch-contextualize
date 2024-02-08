@@ -61,6 +61,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
   </React.StrictMode>,
 )
 ```
+You can always define your api config  in a differenct file and import it.
 
 ### Axios configuration
 
