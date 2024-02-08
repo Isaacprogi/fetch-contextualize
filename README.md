@@ -124,8 +124,9 @@ You can pass extra configuration to a single api by doing the following.
 
 After setting up the `ApiContext`, you can use the `useApi` hook in your components to make API calls. Here's how to use it.
 You can always call fetchData what you want
+
 ```jsx
- const { data, error, loading, fetchData, searchValue, cancel } = useApi<User[]>('users');
+ const { data, error, loading, fetchData:fetchUsers[], searchValue, cancel } = useApi<User[]>('users');
 ``
 
 ```jsx
