@@ -123,7 +123,8 @@ You can pass extra configuration to a single api by doing the following.
 ## Usage
 
 After setting up the `ApiContext`, you can use the `useApi` hook in your components to make API calls. Here's how to use it.
-You can always call fetchData what you want
+You can always call fetchData what you want and the name `users` must match the name of the of a single api in your apiConfig.
+If the name of your api is `posts` then it should be `posts`.The `User[]` specifies the return type for the data.
 
 ```jsx
  const { data, error, loading, fetchData:fetchUsers[], searchValue, cancel } = useApi<User[]>('users');
@@ -162,7 +163,7 @@ The following will not be called when component mounts.
 ```
 ### Passing Data
 #### Query Parameters: How to pass query parameters
-The query parameters should be put within the params object.
+When making a get request, the query parameters should be put within the params object.
 ```jsx
   fetchData(params:{
     id:"blabla",
@@ -170,7 +171,7 @@ The query parameters should be put within the params object.
   })
 ```
 #### Passing body: How to include a request body
-The body should be put within the data object.
+When making a post request or any other request that requires a body, the body should be put within the data object.
 
 ```jsx
   fetchData(data:{
