@@ -8,6 +8,9 @@ a custom hook, useApi, for fetching data with ease, handling loading states, err
 - [Features](#features)
 - [Installation](#installation)
 - [Setup](#setup)
+  - [Axios Configuration](#axios-configuration)
+    - [Axios Instance](#axios-instance)
+    - [Single api extra configuration](#Single-api-extra-configuration)
 - [Usage](#usage)
   - [Passing Data](#passing-data)
     - [Query Parameters](#query-parameters)
@@ -46,8 +49,8 @@ import { ApiConfig,ApiProvider} from 'fetch-contextualize'
 import App from './App';
 
 const apiConfig:ApiConfig[] = [
-  { name: 'users', method: 'GET', path: 'api/users' },
-  { name: 'posts', method: 'GET', path: 'api/posts' },
+  { name: 'users', method: 'GET', path: '/users' },
+  { name: 'posts', method: 'GET', path: '/posts' },
 ];
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
@@ -58,10 +61,13 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
   </React.StrictMode>,
 )
 ```
+
 ### Axios configuration
 
 #### Axios Instance
 You can use an axios instance in conjuction with the apiConfig
+
+```jsx
 const instance = axios.create({
   baseURL: 'https://your-api-domain.com/api',
   timeout: 1000,
@@ -75,8 +81,9 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
     </ApiProvider>
   </React.StrictMode>,
 )
+```
 
-#### Single Api extra configuration
+#### Single api extra configuration
 You can pass extra configuration to a single api by doing the following.
  ```jsx
  const apiConfig:ApiConfig[] = [
@@ -115,6 +122,10 @@ You can pass extra configuration to a single api by doing the following.
 ## Usage
 
 After setting up the `ApiContext`, you can use the `useApi` hook in your components to make API calls. Here's how to use it.
+You can always call fetchData what you want
+```jsx
+ const { data, error, loading, fetchData, searchValue, cancel } = useApi<User[]>('users');
+``
 
 ```jsx
 import React from 'react';
@@ -126,7 +137,7 @@ interface User {
 }
 
 function MyComponent() {
-  const { data, error, loading, fetchData, cancel } = useApi<User[]>('user', { onMount: true });
+  const { data, error, loading, fetchData, cancel } = useApi<User[]>('users', { onMount: true });
 
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error: {error.message}</div>;
@@ -144,8 +155,8 @@ If onmount is set to true,the api is called when component mounts and vise versa
 The following will not be called when component mounts.
 
 ```jsx
-  const { data, error, loading, fetchData, cancel } = useApi<User[]>('user');
-  const { data, error, loading, fetchData, cancel } = useApi<User[]>('user', { onMount: false });
+  const { data, error, loading, fetchData, cancel } = useApi<User[]>('users');
+  const { data, error, loading, fetchData, cancel } = useApi<User[]>('users', { onMount: false });
 ```
 ### Passing Data
 #### Query Parameters: How to pass query parameters
