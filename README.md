@@ -252,7 +252,7 @@ Hook for making API requests within React components.
 We welcome contributions to improve this package. If you have suggestions, bug reports, or want to contribute code, please feel free to open an issue or submit a pull request on our GitHub repository.
 
 ## License
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 
 
