@@ -10,7 +10,7 @@ a custom hook, useApi, for fetching data with ease, handling loading states, err
 - [Setup](#setup)
   - [Axios Configuration](#axios-configuration)
     - [Axios Instance](#axios-instance)
-    - [Single api extra configuration](#Single-api-extra-configuration)
+    - [Single Api Extra Configuration](#Single-Api-Extra-Configuration)
 - [Usage](#usage)
   - [Passing Data](#passing-data)
     - [Query Parameters](#query-parameters)
@@ -86,7 +86,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
 )
 ```
 
-#### Single api extra configuration
+#### Single Api Extra Configuration
 You can pass extra configuration to a single api by doing the following.
  ```jsx
  const apiConfig:ApiConfig[] = [
@@ -187,7 +187,7 @@ When making a post request or any other request that requires a body, the body s
 ```
 ### Dynamic path 
 You can `dynamically` change the value of `path parameters` of a url by passing the url to the dynamicPath option.
-You can choose to call the fetch function whenever ever id changes or set onMount to true which will cause a rerender.
+You can choose to call the fetch function whenever the `id` changes, or set `onMount` to true to automatically fetch data when the component mounts, triggering a re-render
 
 ```jsx
 import React from 'react';
