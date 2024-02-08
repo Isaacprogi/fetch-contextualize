@@ -1,6 +1,6 @@
 {
   "name": "fetch-contextualize",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A React context and hook package for streamlined API requests with Axios, featuring built-in loading states and error handling",
   "type": "module",
   "main": "dist/fetch-contextualize.umd.cjs",
